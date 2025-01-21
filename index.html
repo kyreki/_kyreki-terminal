@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_kyreki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+        body {
+            background-color: #000;
+            color: #e0e0e0;
+            font-family: 'Fira Code', monospace;
+        }
+        .window {
+            background-color: #111;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(39, 201, 63, 0.6);
+            max-width: 800px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .window:hover {
+            box-shadow: 0 20px 50px rgba(39, 201, 63, 0.9);
+            transform: scale(1.02);
+        }
+        .window-header {
+            background-color: #222;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .window-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+        .btn.red { background: #ff5f56; }
+        .btn.yellow { background: #ffbd2e; }
+        .btn.green { background: #27c93f; }
+        .code-line {
+            transition: all 0.3s ease;
+        }
+        .code-line:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+        .cursor-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="window">
+        <div class="window-header">
+            <div class="window-buttons">
+                <div class="btn red"></div>
+                <div class="btn yellow"></div>
+                <div class="btn green"></div>
+            </div>
+            <div class="ml-auto text-gray-300 text-sm">Terminal — Profile.js</div>
+        </div>
+        
+        <div class="p-6">
+            <div class="text-xl mb-4">
+                <span class="text-green-400" id="typing"></span>
+            </div>
+            
+            <div class="pl-4">
+                <div class="code-line py-2">
+                    <span class="text-blue-400">const</span> 
+                    <span class="text-yellow-400">developerInfo</span> 
+                    <span class="text-white">=</span> 
+                    <span class="text-purple-400">{</span>
+                </div>
+                <div class="code-line py-2 pl-4">
+                    <span class="text-red-400">name</span>: 
+                    <span class="text-green-300">"_kyreki"</span>,
+                </div>
+                <div class="code-line py-2 pl-4">
+                    <span class="text-red-400">role</span>: 
+                    <span class="text-green-300">"Full Stack Developer"</span>,
+                </div>
+                <div class="code-line py-2 pl-4">
+                    <span class="text-red-400">skills</span>: 
+                    <span class="text-purple-400">[</span>
+                    <span class="text-green-300">"React"</span>, 
+                    <span class="text-green-300">"Node.js"</span>, 
+                    <span class="text-green-300">"Python"</span>
+                    <span class="text-purple-400">]</span>,
+                </div>
+                <div class="code-line py-2 pl-4">
+                    <span class="text-red-400">contact</span>: 
+                    <span class="text-green-300">"support@kyreki.online"</span>
+                </div>
+                <div class="code-line py-2">
+                    <span class="text-purple-400">}</span>;
+                </div>
+            </div>
+            
+            <div class="text-xl mt-4">
+                <span class="text-green-400">&lt;/profile&gt;</span>
+                <span class="cursor-blink text-white">|</span>
+            </div>
+        </div>
+
+        <div class="bg-[#222] p-4">
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/kyreki" target="_blank" class="text-gray-300 hover:text-green-400 text-2xl transition-colors">
+                    <i class="ri-github-fill"></i>
+                </a>
+                <a href="mailto:support@kyreki.online" class="text-gray-300 hover:text-green-400 text-2xl">
+                    <i class="ri-mail-line"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const text = "&lt;profile&gt;";
+        let index = 0;
+        function typeEffect() {
+            document.getElementById("typing").innerHTML = text.slice(0, index++);
+            if (index <= text.length) setTimeout(typeEffect, 150);
+        }
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
