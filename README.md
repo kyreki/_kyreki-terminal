@@ -47,7 +47,7 @@ Contributions are welcome! Feel free to fork the repository, make improvements, 
 
 ## 📧 Contact
 
-- Email: support@kyreki.online
+- Email: kyrekion@kyreki.online
 - GitHub: kyreki
 
 ---
